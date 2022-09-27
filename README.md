@@ -2,6 +2,8 @@
 
 A [newman](https://github.com/postmanlabs/newman) reporter for [slack](https://slack.com/)
 
+This fork will @mention specified individuals or channels when tests fail.
+
 newman run
 
 | collection - environment | total | failed  |
@@ -29,6 +31,7 @@ export SLACK_WEBHOOK_URL='https://hooks.slack.com/services/xxx/yyy/zzzzzzzzzzzz'
 export SLACK_CHANNEL='#slack-channel'
 export TITLE='newman run title'
 export HEADER='newman run header'
+export SLACK_FAILURE_ALERT='<userId>'
 ```
 
 ### Run newman test with the reporter option `-r slack`

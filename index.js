@@ -9,6 +9,8 @@ class SlackReporter {
         const channel = process.env.SLACK_CHANNEL || reporterOptions.channel;
         let title = process.env.TITLE || reporterOptions.title;
         let header = process.env.HEADER || reporterOptions.header || '';
+        let alert = process.env.SLACK_FAILURE_ALERT || reporterOptions.slackFailureAlert || '<!channel>';
+        let hasFailures = new Boolean(false);
 
         if (!webhookUrl) {
             console.log('please provide slack webhook url');
@@ -23,6 +25,7 @@ class SlackReporter {
             }
             let run = summary.run;
             let totalFailures = summary.run.failures;
+            if (totalFailures.length > 0) hasFailures = true;
             let data = [];
             if (!title) {
                 title = summary.collection.name;
@@ -63,6 +66,7 @@ class SlackReporter {
 
             let table = markdowntable(data);
             let text = `${title}\n${backticks}${table}${backticks}`;
+            if (hasFailures === true) text = `${alert} - REVIEW FAILURES\n` + text;
             let msg = {
                 text: text,
             };
