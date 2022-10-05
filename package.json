@@ -1,5 +1,5 @@
 {
-  "name": "newman-reporter-slack",
+  "name": "@adcellerant/newman-reporter-slack",
   "version": "1.3.0",
   "description": "A newman reporter for slack",
   "main": "index.js",
@@ -9,7 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/avidit/newman-reporter-slack"
+    "url": "git+https://github.com/AdCellerant/newman-reporter-slack.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "newman",
@@ -19,9 +22,9 @@
   "author": "aabishkar@gmail.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/avidit/newman-reporter-slack/issues"
+    "url": "https://github.com/AdCellerant/newman-reporter-slack/issues"
   },
-  "homepage": "https://github.com/avidit/newman-reporter-slack#readme",
+  "homepage": "https://github.com/AdCellerant/newman-reporter-slack#readme",
   "dependencies": {
     "@slack/client": "^4.3.1",
     "markdown-table": "^1.1.2",

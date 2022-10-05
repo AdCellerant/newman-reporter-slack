@@ -1,0 +1,22 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  release:
+    name: Release to GitHub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_USER_TOKEN }}
+        run: npx semantic-release
